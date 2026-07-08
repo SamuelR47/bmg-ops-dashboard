@@ -1,0 +1,198 @@
+{
+  "scheme_in_use": "definition_v1",
+  "note": "definition_v1 is the weighting currently reflected in Hub v08 Trend View GlazeGrade (validated 100%). proposed_v2 is the rebalance on the 'New Weights' tab (Cert SL dropped, Accuracy/Training reduced) - NOT yet applied. Switch scheme_in_use to recompute. Weights are renormalized over the metrics actually present for each store-period.",
+  "metrics": [
+    {
+      "name": "OSAT",
+      "direction": "high_good",
+      "cuts": [
+        75,
+        80,
+        85,
+        90
+      ],
+      "unit": "index",
+      "weight_dt_v1": 0.0556,
+      "weight_in_v1": 0.0714,
+      "weight_dt_v2": 0.1,
+      "weight_in_v2": 0.12,
+      "active": true
+    },
+    {
+      "name": "Accuracy",
+      "direction": "high_good",
+      "cuts": [
+        75,
+        80,
+        85,
+        90
+      ],
+      "unit": "pct",
+      "weight_dt_v1": 0.0556,
+      "weight_in_v1": 0.0714,
+      "weight_dt_v2": 0.03,
+      "weight_in_v2": 0.04,
+      "active": true
+    },
+    {
+      "name": "SOS",
+      "direction": "low_good",
+      "cuts": [
+        161,
+        182,
+        198,
+        216
+      ],
+      "unit": "seconds",
+      "recalibration_note": "PEAK-ONLY. Cuts = p20/p40/p60/p80 of store L3M (Feb-Apr 2026) SOS computed from HME TotalTimeInLane over each store-day's 2 busiest clock-hours. OLD cuts [125,140,155,170] were tuned to the retired hand-built Hub SOS (~140s, all-day). FactPeakSales is only a 3-day rolling snapshot so peak window is computed from HME.",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.0,
+      "weight_dt_v2": 0.14,
+      "weight_in_v2": 0.0,
+      "active": true
+    },
+    {
+      "name": "Complaints/10K",
+      "direction": "low_good",
+      "cuts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "unit": "count_per_10k",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.1429,
+      "weight_dt_v2": 0.11,
+      "weight_in_v2": 0.16,
+      "active": true
+    },
+    {
+      "name": "Training",
+      "direction": "high_good",
+      "cuts": [
+        0.75,
+        0.8,
+        0.85,
+        0.9
+      ],
+      "unit": "pct_fraction",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.1429,
+      "weight_dt_v2": 0.08,
+      "weight_in_v2": 0.11,
+      "active": true
+    },
+    {
+      "name": "Hourly TO",
+      "direction": "low_good",
+      "cuts": [
+        0.8,
+        1.0,
+        1.2,
+        1.4
+      ],
+      "unit": "pct_fraction",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.1429,
+      "weight_dt_v2": 0.14,
+      "weight_in_v2": 0.18,
+      "active": true
+    },
+    {
+      "name": "Window Time",
+      "direction": "low_good",
+      "cuts": [
+        45,
+        55,
+        65,
+        75
+      ],
+      "unit": "seconds",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.0,
+      "weight_dt_v2": 0.11,
+      "weight_in_v2": 0.0,
+      "active": true,
+      "note": "5pt = 45s or faster (updated). 10s stepdowns: 45-55,55-65,65-75,>=75.",
+      "recalibration_note": "PEAK-ONLY source = HME DetectorTimeOn (window detectors) over each store-day's 2 busiest clock-hours. Peak L3M p20/p40/p60/p80 = 50/55/60/67; retained business cuts [45,55,65,75] (45s top threshold) per Pete's preference."
+    },
+    {
+      "name": "Labor Var",
+      "direction": "low_good",
+      "cuts": [
+        -0.005,
+        0.0,
+        0.005,
+        0.01
+      ],
+      "unit": "pct_fraction",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.1429,
+      "weight_dt_v2": 0.14,
+      "weight_in_v2": 0.18,
+      "active": true
+    },
+    {
+      "name": "COGS Var",
+      "direction": "low_good",
+      "cuts": [
+        -0.005,
+        0.0,
+        0.005,
+        0.01
+      ],
+      "unit": "pct_fraction",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.1429,
+      "weight_dt_v2": 0.15,
+      "weight_in_v2": 0.21,
+      "active": true
+    },
+    {
+      "name": "Cert SL/AGM",
+      "direction": "high_good",
+      "cuts": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "unit": "count",
+      "weight_dt_v1": 0.1111,
+      "weight_in_v1": 0.1429,
+      "weight_dt_v2": 0.0,
+      "weight_in_v2": 0.0,
+      "active": true,
+      "note": "2026 CSL headcount pending; v2 drops pending data."
+    },
+    {
+      "name": "Labor Retention",
+      "direction": null,
+      "cuts": null,
+      "unit": null,
+      "weight_dt_v1": 0.0,
+      "weight_in_v1": 0.0,
+      "weight_dt_v2": 0.0,
+      "weight_in_v2": 0.0,
+      "active": false,
+      "placeholder": true,
+      "note": "PLACEHOLDER - definition TBD. See README options."
+    },
+    {
+      "name": "Staffing",
+      "direction": null,
+      "cuts": null,
+      "unit": null,
+      "weight_dt_v1": 0.0,
+      "weight_in_v1": 0.0,
+      "weight_dt_v2": 0.0,
+      "weight_in_v2": 0.0,
+      "active": false,
+      "placeholder": true,
+      "note": "PLACEHOLDER - definition TBD. See README options."
+    }
+  ],
+  "exclude_periods": [],
+  "exclude_note": "Periods with incomplete metric coverage, excluded from GlazeGrade. 2026-05 un-excluded 2026-06-29 once full scorecard coverage confirmed (8 Fabric metrics present)."
+}
